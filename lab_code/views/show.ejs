@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Show Budget Item</title>
+</head>
+<body>
+    <h1>Budget Item</h1>
+    <table class="table table-dark">
+        <tr>
+            <td>Date:</td>
+            <td><%= data.date %></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><%= data.name %></td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td><%= data.amount %></td>
+        </tr>
+    </table>
+    <a href="/budget">Back to Budget List</a>
+    <a href="/budget/<%= data._id %>/edit/" class="btn btn-primary">Edit</a>
+    <form action="/budget/<%= data._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
+</body>
+</html>

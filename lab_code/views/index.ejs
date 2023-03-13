@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>BUDGE</title>
+</head>
+<body>
+ 
+<div class="container">
+<div style="background-color: blanchedalmond"> 
+    <div style="border-style: solid">
+        <div style="padding: 5px;">
+     <div class="text-center"> 
+         <h1>BUDGE IT</h1>
+         <p>Bank Account: <%= bankAccount %></p> 
+         <a href="/budget/new">Add NEW Item!</a>
+     </div>
+</div>
+
+
+
+<div class= "container-fluid">
+    <table class="table table-striped">
+     
+        <% for (let i = 0; i < data.length; i++) { %>
+          <tr>
+            <td><%= data[i].date %></td>
+            <td><a href="/budget/edit/<%= data[i]._id %>"><%= data[i].name %></a></td>
+            <td><%= data[i].amount %></td>
+            <td><a href="/budget/edit/<%= data[i]._id %>" class="btn btn-primary">Edit</a></td>
+            <td><a href="/budget/delete/<%= data[i]._id %>" class="btn btn-danger">Delete</a></td>
+          </tr>
+        <% } %>
+      </table>          
+</div>
+</div>   
+</div> 
+</div>
+</div>
+<div style="background-color: blanchedalmond;">
+<footer></footer> 
+</div>
+
+<% if (bankAccount < 0) { %>
+    <style>body{background-color: red;}</style>
+<% } else if (bankAccount > 1000) { %>
+    <style>body{background-color: green;}</style>
+<% } else { %>
+    <style>body{background-color: blue;}</style>
+<% } %>
+
+</body>
+</html>
